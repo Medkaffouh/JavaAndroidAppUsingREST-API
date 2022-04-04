@@ -7,6 +7,7 @@ public class WeatherReportModel {
     private String weather_state_abbr;
     private String wind_direction_compass;
     private String created;
+    private String applicable_date;
     private float min_temp;
     private float max_temp;
     private float the_temp;
@@ -20,12 +21,13 @@ public class WeatherReportModel {
     public WeatherReportModel() {
     }
 
-    public WeatherReportModel(int id, String weather_state_name, String weather_state_abbr, String wind_direction_compass, String created, float min_temp, float max_temp, float the_temp, float wind_speed, float wind_direction, float air_pressure, int humidity, float visibility, int predictability) {
+    public WeatherReportModel(int id, String weather_state_name, String weather_state_abbr, String wind_direction_compass, String created,String applicable_date, float min_temp, float max_temp, float the_temp, float wind_speed, float wind_direction, float air_pressure, int humidity, float visibility, int predictability) {
         this.id = id;
         this.weather_state_name = weather_state_name;
         this.weather_state_abbr = weather_state_abbr;
         this.wind_direction_compass = wind_direction_compass;
         this.created = created;
+        this.applicable_date = applicable_date;
         this.min_temp = min_temp;
         this.max_temp = max_temp;
         this.the_temp = the_temp;
@@ -39,22 +41,10 @@ public class WeatherReportModel {
 
     @Override
     public String toString() {
-        return "WeatherReportModel{" +
-                "id=" + id +
-                ", weather_state_name='" + weather_state_name + '\'' +
-                ", weather_state_abbr='" + weather_state_abbr + '\'' +
-                ", wind_direction_compass='" + wind_direction_compass + '\'' +
-                ", created='" + created + '\'' +
-                ", min_temp=" + min_temp +
-                ", max_temp=" + max_temp +
-                ", the_temp=" + the_temp +
-                ", wind_speed=" + wind_speed +
-                ", wind_direction=" + wind_direction +
-                ", air_pressure=" + air_pressure +
-                ", humidity=" + humidity +
-                ", visibility=" + visibility +
-                ", predictability=" + predictability +
-                '}';
+        return weather_state_name + " Date: "+ applicable_date +
+                " Lo: " + min_temp +
+                " Hi: " + max_temp +
+                " Temp: " + the_temp;
     }
 
     public int getId() {
@@ -63,6 +53,14 @@ public class WeatherReportModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getApplicable_date() {
+        return applicable_date;
+    }
+
+    public void setApplicable_date(String applicable_date) {
+        this.applicable_date = applicable_date;
     }
 
     public String getWeather_state_name() {
